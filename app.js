@@ -1,9 +1,11 @@
 var express = require('express');
+const cors = require('cors');
 var exphbs  = require('express-handlebars');
 var port = process.env.PORT || 3000
 
 var app = express();
- 
+app.use(cors());
+
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
@@ -18,5 +20,16 @@ app.get('/', function (req, res) {
 app.get('/detail', function (req, res) {
     res.render('detail', req.query);
 });
+app.get('/thankyou', function (req, res) {
+    res.render('thankyou', req.query);
+});
+app.get('/error', function (req, res) {
+    res.render('error', req.query);
+});
+app.get('/pending', function (req, res) {
+    res.render('pending', req.query);
+});
 
-app.listen(port);
+app.use('/api/mp', require('./api/mp'));
+
+app.listen(port, () =>console.log('Server started'))
