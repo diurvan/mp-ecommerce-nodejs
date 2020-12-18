@@ -4,7 +4,7 @@ const mercadopago = require ('mercadopago');
 
 const router = express.Router();
 // let url = 'http://localhost:3000';
-let url = 'https://diurvan-mp-commerce-nodejs.herokuapp.com/';
+let url = 'https://diurvan-mp-commerce-nodejs.herokuapp.com';
 
 router.use(bodyParser.json());
 
