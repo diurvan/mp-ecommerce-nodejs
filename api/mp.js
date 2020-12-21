@@ -63,20 +63,12 @@ router.post('', async (req, res)=>{
         },
         "payment_methods": {
             "excluded_payment_methods": [
-                {
-                    "id": "diners"
-                },
-                {
-                    "id": "atm"
-                }
+                { "id": "diners" },
+                { "id": "atm" }
             ],
             "excluded_payment_types": [
-                {
-                    "id": "diners"
-                },
-                {
-                    "id": "atm"
-                }
+                { "id": "diners" },
+                { "id": "atm" }
             ],
             "installments": 6
         }
