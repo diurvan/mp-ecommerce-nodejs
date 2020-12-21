@@ -6,6 +6,7 @@ const router = express.Router();
 //let url = 'http://localhost:3000';
 let url = 'https://diurvan-mp-commerce-nodejs.herokuapp.com';
 
+router.use(cors());
 router.use(bodyParser.json());
 
 router.post('', async (req, res)=>{
