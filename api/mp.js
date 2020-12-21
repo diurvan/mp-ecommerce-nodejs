@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mercadopago = require ('mercadopago');
 
 const router = express.Router();
-// let url = 'http://localhost:3000';
+//let url = 'http://localhost:3000';
 let url = 'https://diurvan-mp-commerce-nodejs.herokuapp.com';
 
 router.use(bodyParser.json());
@@ -14,18 +14,23 @@ router.post('', async (req, res)=>{
         access_token: 'APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439',
         platform_id: 'PLATFORM_DIURVAN_ID',
         integrator_id: 'dev_2e4ad5dd362f11eb809d0242ac130004',
-        corporation_id: 'DIURVAN_ID',
-        modal: true
+        corporation_id: 'DIURVAN_ID'
     });
 
     let preference = {
+        "notification_url": url + "/api/mp/notification",
+        "statement_descriptor": "DIURVAN",
+        "external_reference": "diurvan1@gmail.com",
+        "collector_id" : 677408439,
+        "auto_return": "approved",
         "items": [
             {
                 "id": "1234",
                 "title": req.body.titulo,
                 "currency_id": "PEN",
                 "picture_url": req.body.imagen,
-                "description": req.body.titulo,
+                // "description": req.body.titulo,
+                "description": "Dispositivo móvil de Tienda e-commerce",
                 "category_id": "art",
                 "quantity": parseInt(req.body.cantidad),
                 "unit_price": parseFloat(req.body.precio)
@@ -57,21 +62,22 @@ router.post('', async (req, res)=>{
         "payment_methods": {
             "excluded_payment_methods": [
                 {
-                    "id": "pagoefectivo_atm"
+                    "id": "diners"
+                },
+                {
+                    "id": "atm"
                 }
             ],
             "excluded_payment_types": [
                 {
                     "id": "diners"
+                },
+                {
+                    "id": "atm"
                 }
             ],
             "installments": 6
-        },
-        "notification_url": url + "/api/mp/notification",
-        "statement_descriptor": "DIURVAN",
-        "external_reference": "diurvan1@gmail.com",
-        "collector_id" : 677408439,
-        "auto_return": "approved"
+        }
         // "expires": true,
         // "expiration_date_from": "2016-02-01T12:00:00.000-04:00",
         // "expiration_date_to": "2016-02-28T12:00:00.000-04:00"
