@@ -12,8 +12,18 @@ router.use(bodyParser.json());
 
 router.post('', async (req, res)=>{
     
+    /*
+    Ejecutarlo en CMD:
+    curl -X POST -H "Content-Type: application/json" "https://api.mercadopago.com/users/test_user?access_token=APP_USR-1193600737415543-121816-c6c7139d7b41c80bc14ae93c862eab7e-606149518" -d "{'site_id':'MPE'}"
+
+    VENDEDOR:
+    {"id":692690479,"nickname":"TETE6970189","password":"qatest8739","site_status":"active","email":"test_user_83608988@testuser.com"}
+    COMPRADOR:
+    {"id":692695877,"nickname":"TESTXOJTZE0Q","password":"qatest2602","site_status":"active","email":"test_user_48879676@testuser.com"}
+    */
     mercadopago.configure({
-        access_token: 'APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439',
+        // access_token: 'APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439',
+        access_token: 'APP_USR-1193600737415543-121816-c6c7139d7b41c80bc14ae93c862eab7e-606149518',
         platform_id: 'PLATFORM_DIURVAN_ID',
         integrator_id: 'dev_2e4ad5dd362f11eb809d0242ac130004',
         corporation_id: 'DIURVAN_ID'
