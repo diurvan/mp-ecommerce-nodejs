@@ -123,10 +123,10 @@ jQuery(document).ready(function($) {
             },
             success: function(retorno){
                 console.log(retorno.message);
-                //var rutamercado = 'https://www.mercadopago.com.pe/checkout/v1/payment/redirect/d96c3b78-9fe4-4138-886f-b64c2c183f75/payment-option-form/?preference-id=' + retorno.message.id;
-                window.location.href = 'https://www.mercadopago.com.pe/checkout/v1/payment/redirect/d96c3b78-9fe4-4138-886f-b64c2c183f75/payment-option-form/?preference-id=' + retorno.message.id;
+                var rutamercado = 'https://www.mercadopago.com.pe/checkout/v1/payment/redirect/d96c3b78-9fe4-4138-886f-b64c2c183f75/payment-option-form/?preference-id=' + retorno.message.id;
+                //window.location.href = 'https://www.mercadopago.com.pe/checkout/v1/payment/redirect/d96c3b78-9fe4-4138-886f-b64c2c183f75/payment-option-form/?preference-id=' + retorno.message.id;
 
-                {{!-- jQuery("#thedialog").attr('src', rutamercado);
+                jQuery("#thedialog").attr('src', rutamercado);
                 jQuery("#somediv").dialog({
                     width: 800,
                     height: 600,
@@ -134,7 +134,7 @@ jQuery(document).ready(function($) {
                     close: function () {
                         jQuery("#thedialog").attr('src', "about:blank");
                     }
-                }); --}}
+                });
       
             },
             complete: function(){

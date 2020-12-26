@@ -1,6 +1,7 @@
 var express = require('express');
 const cors = require('cors');
 var exphbs  = require('express-handlebars');
+require('./database');
 var port = process.env.PORT || 3000
 
 var app = express();

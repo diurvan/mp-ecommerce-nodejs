@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mercadopago = require ('mercadopago');
+const modelo = require('../models/mp-model')
 
 const router = express.Router();
 //let url = 'http://localhost:3000';
@@ -101,8 +102,17 @@ router.post('', async (req, res)=>{
 
 router.post('/notification', async (req, res)=>{
     console.log(req.body);
+    const modelo = new modelo(req.body);
+    modelo.save(function(error, data){
+        if (error) {
+            res.send({status: 400, message: JSON.stringify( error) });
+        }
+        else{
+            res.json ({status: 200, message: data })
+        }
+    });
     //res.json ({status: 200, message: response.body.id})
-    res.json ({status: 200, message: 'OK' })
+    res.json ({status: 200, message: req.body })
 });
 
 module.exports = router;
