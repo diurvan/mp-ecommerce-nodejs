@@ -21,7 +21,7 @@ const mpSchema = new Schema(
     }
 )
 
-const modelomp = model('mp', userSchema)
+const modelomp = model('mp', mpSchema)
 module.exports = modelomp
 
 /*
