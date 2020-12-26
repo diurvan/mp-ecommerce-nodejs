@@ -114,5 +114,9 @@ router.post('/notification', async (req, res)=>{
     //res.json ({status: 200, message: response.body.id})
     res.json ({status: 200, message: req.body })
 });
+router.get('/notification', async (req, res)=>{
+    const Modelos = await modelo.find()
+    res.json ({status: 200, message: Modelos})
+});
 
 module.exports = router;
