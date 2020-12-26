@@ -2,18 +2,19 @@ const { Schema, model } = require('mongoose');
 
 const mpSchema = new Schema(
     {
-      id: { type: Number, required:false },
-      live_mode: { type: Boolean, required:false },
-      type: { type: String, required:false },
-      date_created: { type: String, required:false },
-      application_id: { type: Number, required:false },
-      user_id: { type: Number, required:false },
-      version: { type: Number, required:false },
-      api_version: { type: String, required:false },
-      action: { type: String, required:false },
-      data: {
-        id: { type: String, required:true }
-      },
+    //   id: { type: Number, required:false },
+    //   live_mode: { type: Boolean, required:false },
+    //   type: { type: String, required:false },
+    //   date_created: { type: String, required:false },
+    //   application_id: { type: Number, required:false },
+    //   user_id: { type: Number, required:false },
+    //   version: { type: Number, required:false },
+    //   api_version: { type: String, required:false },
+    //   action: { type: String, required:false },
+    //   data: {
+    //     id: { type: String, required:true }
+    //   },
+    data: { type: String, required:false },
     },
     {
         timestamps: true,

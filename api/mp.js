@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mercadopago = require ('mercadopago');
-const modelo = require('../models/mp-model')
+const modelomp = require('../models/mp-model')
 
 const router = express.Router();
 //let url = 'http://localhost:3000';
@@ -101,8 +101,21 @@ router.post('', async (req, res)=>{
 });
 
 router.post('/notification', async (req, res)=>{
-    console.log(req.body);
-    const modelo = new modelo(req.body);
+    // console.log(req.body);
+    // const modelo = new modelo(req.body);
+    // modelo.save(function(error, data){
+    //     if (error) {
+    //         res.send({status: 400, message: JSON.stringify( error) });
+    //     }
+    //     else{
+    //         res.json ({status: 200, message: data })
+    //     }
+    // });
+    // //res.json ({status: 200, message: response.body.id})
+    // res.json ({status: 200, message: req.body })
+
+    const modelo = new modelomp();
+    modelo.data = JSON.stringify(req.body);
     modelo.save(function(error, data){
         if (error) {
             res.send({status: 400, message: JSON.stringify( error) });
@@ -111,11 +124,9 @@ router.post('/notification', async (req, res)=>{
             res.json ({status: 200, message: data })
         }
     });
-    //res.json ({status: 200, message: response.body.id})
-    res.json ({status: 200, message: req.body })
 });
 router.get('/notification', async (req, res)=>{
-    const Modelos = await modelo.find()
+    const Modelos = await modelomp.find()
     res.json ({status: 200, message: Modelos})
 });
 
